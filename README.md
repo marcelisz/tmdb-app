@@ -6,6 +6,7 @@ This application retrieves data from TMDB (The Movie Database), stores it locall
 - PHP 8.2+
 - Composer
 - MySQL (or other compatible database)
+- Laravel 12+
 
 ## Setup
 
@@ -69,3 +70,14 @@ Supported codes: `en`, `pl`, `de` (default: `en`).
 - **Movie**: Stores title/overview in JSON for multiple languages.
 - **Serie**: Stores name/overview in JSON.
 - **Genre**: Stores name in JSON.
+
+## Testing
+
+The application includes a suite of Feature tests that ensure the integrity of the data ingestion process and API responses without hitting the real TMDB API. To execute the tests, run the following command:
+```bash
+php artisan test
+```
+The following elements are tested:
+- **Console command** - verifies that `php artisan tmdb:sync` command correctly dispatches the job to the queue.
+- **Job logic** - verifies that `FetchTmdbData` class handles multi-page fetching and language merging correctly.
+- **API endpoints** - verifies JSON structure, pagination, and `Accept-Language` header handling (e.g., requesting Polish data returns Polish titles).
