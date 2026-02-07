@@ -84,4 +84,4 @@ The following elements are tested:
 
 ## Livewire frontend
 
-A Livewire web interface that lists movies saved in the database is available on the `/movies-list` endpoint. It displays movie details in grid layout and supports pagination, offering seamless page switching without full reloads.
+A Livewire web interface that lists movies saved in the database is available on the `/movies-list` endpoint. It displays movie details in grid layout and supports pagination, offering seamless page switching without full reloads. It also has multi-language support (the language of the interface can be changed from the dropdown menu).

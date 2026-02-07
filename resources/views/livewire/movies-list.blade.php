@@ -1,5 +1,16 @@
 <div>
-    <h1 class="text-3xl font-bold mb-6">Popular movies</h1>
+    <div class="flex justify-between items-center mb-6">
+        <h1 class="text-3xl font-bold">{{ __('Popular movies') }}</h1>
+
+        <div>
+            <label for="lang" class="mr-2 font-semibold">{{ __('Language') }}:</label>
+            <select wire:model.live="locale" id="lang" class="border border-gray-300 rounded p-2 bg-white">
+                <option value="en">English</option>
+                <option value="pl">Polski</option>
+                <option value="de">Deutsch</option>
+            </select>
+        </div>
+    </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         @foreach($movies as $movie)
@@ -10,11 +21,11 @@
                     </h2>
 
                     <p class="text-sm text-gray-500 mb-2">
-                        Release: {{ $movie->release_date ?? 'Unknown' }}
+                        {{ __('Release date') }}: {{ $movie->release_date ?: __('Unknown') }}
                     </p>
 
                     <p class="text-gray-700 text-sm line-clamp-3">
-                        {{ $movie->getTranslated('overview') }}
+                        {{ $movie->getTranslated('overview') ?: __('No description available') }}
                     </p>
                 </div>
             </div>
