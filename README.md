@@ -81,3 +81,7 @@ The following elements are tested:
 - **Console command** - verifies that `php artisan tmdb:sync` command correctly dispatches the job to the queue.
 - **Job logic** - verifies that `FetchTmdbData` class handles multi-page fetching and language merging correctly.
 - **API endpoints** - verifies JSON structure, pagination, and `Accept-Language` header handling (e.g., requesting Polish data returns Polish titles).
+
+## Livewire frontend
+
+A Livewire web interface that lists movies saved in the database is available on the `/movies-list` endpoint. It displays movie details in grid layout and supports pagination, offering seamless page switching without full reloads.
